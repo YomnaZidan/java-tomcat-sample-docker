@@ -17,8 +17,8 @@ pipeline {
             steps {
                sh "pwd"
                 //pwd()
-                bat "dir"
-                bat "docker build . -t tomcatsamplewebapp:${env.BUILD_ID}"
+                 sh "ls -a"
+                sh "docker build . -t tomcatsamplewebapp:${env.BUILD_ID}"
             }
         }
 
