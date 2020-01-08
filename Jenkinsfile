@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Application') {
             steps {
-                bat 'mvn -f pom.xml clean package'
+                sh 'mvn -f pom.xml clean package'
             }
             post {
                 success {
@@ -15,9 +15,8 @@ pipeline {
 
         stage('Create Tomcat Docker Image'){
             steps {
-               sh "pwd"
-                //pwd()
-                 sh "ls -a"
+                sh "pwd"
+                sh "ls -a"
                 sh "docker build . -t tomcatsamplewebapp:${env.BUILD_ID}"
             }
         }
